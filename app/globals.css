@@ -1,0 +1,179 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Library Management System - Dark Academia / Premium SaaS */
+  --background: #F6FAFD;
+  --foreground: #0A1931;
+  --card: #FFFFFF;
+  --card-foreground: #0A1931;
+  --popover: #FFFFFF;
+  --popover-foreground: #0A1931;
+  --primary: #0A1931;
+  --primary-foreground: #F6FAFD;
+  --secondary: #E8EEF4;
+  --secondary-foreground: #0A1931;
+  --muted: #E8EEF4;
+  --muted-foreground: #5A6A7A;
+  --accent: #4A7FA7;
+  --accent-foreground: #FFFFFF;
+  --success: #6FA36F;
+  --success-foreground: #FFFFFF;
+  --destructive: #DC4545;
+  --destructive-foreground: #FFFFFF;
+  --border: #D8E4EF;
+  --input: #E8EEF4;
+  --ring: #4A7FA7;
+  --chart-1: #4A7FA7;
+  --chart-2: #6FA36F;
+  --chart-3: #0A1931;
+  --chart-4: #8BA5C7;
+  --chart-5: #A3C9A3;
+  --radius: 1rem;
+  --sidebar: rgba(255, 255, 255, 0.7);
+  --sidebar-foreground: #0A1931;
+  --sidebar-primary: #4A7FA7;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(74, 127, 167, 0.1);
+  --sidebar-accent-foreground: #0A1931;
+  --sidebar-border: rgba(216, 228, 239, 0.5);
+  --sidebar-ring: #4A7FA7;
+}
+
+.dark {
+  --background: #0A1931;
+  --foreground: #F6FAFD;
+  --card: #142747;
+  --card-foreground: #F6FAFD;
+  --popover: #142747;
+  --popover-foreground: #F6FAFD;
+  --primary: #F6FAFD;
+  --primary-foreground: #0A1931;
+  --secondary: #1E3A5F;
+  --secondary-foreground: #F6FAFD;
+  --muted: #1E3A5F;
+  --muted-foreground: #8BA5C7;
+  --accent: #4A7FA7;
+  --accent-foreground: #FFFFFF;
+  --success: #6FA36F;
+  --success-foreground: #FFFFFF;
+  --destructive: #DC4545;
+  --destructive-foreground: #FFFFFF;
+  --border: #1E3A5F;
+  --input: #1E3A5F;
+  --ring: #4A7FA7;
+  --chart-1: #4A7FA7;
+  --chart-2: #6FA36F;
+  --chart-3: #8BA5C7;
+  --chart-4: #A3C9A3;
+  --chart-5: #5A9BD4;
+  --sidebar: rgba(20, 39, 71, 0.8);
+  --sidebar-foreground: #F6FAFD;
+  --sidebar-primary: #4A7FA7;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: rgba(74, 127, 167, 0.2);
+  --sidebar-accent-foreground: #F6FAFD;
+  --sidebar-border: rgba(30, 58, 95, 0.5);
+  --sidebar-ring: #4A7FA7;
+}
+
+@theme inline {
+  --font-sans: 'Poppins', 'Geist', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar hiding utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Glassmorphism sidebar effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Smooth transitions - using data attribute for Next.js compatibility */
+html[data-scroll-behavior="smooth"] {
+  scroll-behavior: smooth;
+}
+
+/* Floating animation for auth pages */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotation, 0deg));
+  }
+  50% {
+    transform: translateY(-20px) rotate(var(--rotation, 0deg));
+  }
+}
+
+/* Button press effect */
+.btn-press {
+  transition: transform 0.1s ease-out;
+}
+.btn-press:active {
+  transform: scale(0.98);
+}
+
+/* Stagger animation utilities */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+.stagger-6 { animation-delay: 300ms; }
